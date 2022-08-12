@@ -1,9 +1,15 @@
-import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import { updateFilter, getContactsFilter } from 'redux/contactsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
 import s from './Filter.module.css';
 
-export default function Filter({ handleFilterChange, filter }) {
+export default function Filter() {
   const filterId = nanoid();
+
+  const dispatch = useDispatch();
+
+  const filter = useSelector(getContactsFilter);
 
   return (
     <div className={s.fieldContainer}>
@@ -16,13 +22,8 @@ export default function Filter({ handleFilterChange, filter }) {
         id={filterId}
         className={s.input}
         value={filter}
-        onChange={handleFilterChange}
+        onChange={e => dispatch(updateFilter(e.currentTarget.value))}
       />
     </div>
   );
 }
-
-Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  handleFilterChange: PropTypes.func.isRequired,
-};
