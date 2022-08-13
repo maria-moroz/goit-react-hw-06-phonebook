@@ -52,6 +52,7 @@ export const { addContact, deleteContact, updateFilter } =
 const persistConfig = {
   key: 'contacts',
   storage,
+  whitelist: ['items'],
 };
 
 export const contactsReducer = persistReducer(

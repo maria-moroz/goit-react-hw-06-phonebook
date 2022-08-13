@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
 import s from './ContactForm.module.css';
 
-export default function ContactForm({ onSubmit }) {
+export default function ContactForm() {
   const [contactName, setContactName] = useState('');
   const [contactNumber, setContactNumber] = useState('');
 
