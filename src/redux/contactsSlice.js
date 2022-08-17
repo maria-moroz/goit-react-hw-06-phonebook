@@ -38,10 +38,7 @@ export const contactsSlice = createSlice({
     },
 
     updateFilter(state, action) {
-      return {
-        ...state,
-        filter: action.payload,
-      };
+      state.filter = action.payload;
     },
   },
 });
